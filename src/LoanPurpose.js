@@ -16,6 +16,9 @@ const LoanPurpose = ({ loanData }) => {
     return obj;
   }, {});
 
+  // final purpose count
+  const purposeCount = Object.values(purposeFrequency);
+
   // remove duplicates
   const uniquePurposes = [...new Set(purpose)];
 
@@ -23,14 +26,21 @@ const LoanPurpose = ({ loanData }) => {
     labels: uniquePurposes,
     datasets: [
       {
-        data: Object.values(purposeFrequency),
+        data: purposeCount,
         backgroundColor: [
           'rgba(255, 99, 132, 0.6)', // pink
-          'rgba(54, 162, 235, 0.6)', // blue
+          'rgba(116, 185, 255, 0.6)', // blue
           'rgba(255, 206, 86, 0.6)', // green
           'rgba(75, 192, 192, 0.6)', // yellow
           'rgba(153, 102, 255, 0.6)', // orange
           'rgba(255, 159, 64, 0.6)', // purple
+          'rgba(129, 236, 236, 0.6)', // aqua
+          'rgba(178, 190, 195, 0.6)', // grey
+          'rgba(85, 239, 196, 0.6)', // mint
+          'rgba(9, 132, 227, 0.6)', // darker blue
+          'rgba(214, 48, 49, 0.6)', // red
+          'rgba(232, 67, 147, 0.6)', // dark purple
+          'rgba(255, 118, 117, 0.6)', // pink mix
         ],
       },
     ],
