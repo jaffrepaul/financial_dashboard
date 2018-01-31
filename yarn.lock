@@ -1638,6 +1638,10 @@ cosmiconfig@^2.1.0, cosmiconfig@^2.1.1:
     parse-json "^2.2.0"
     require-from-string "^1.1.0"
 
+countup.js@^1.9.3:
+  version "1.9.3"
+  resolved "https://registry.yarnpkg.com/countup.js/-/countup.js-1.9.3.tgz#ce3e50cd7160441e478f07da31895edcc0f1c9dd"
+
 create-ecdh@^4.0.0:
   version "4.0.0"
   resolved "https://registry.yarnpkg.com/create-ecdh/-/create-ecdh-4.0.0.tgz#888c723596cdf7612f6498233eebd7a35301737d"
@@ -2873,10 +2877,6 @@ function-bind@^1.0.2, function-bind@^1.1.1:
 functional-red-black-tree@^1.0.1:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/functional-red-black-tree/-/functional-red-black-tree-1.0.1.tgz#1b0ab3bd553b2a0d6399d29c0e3ea0b252078327"
-
-g@^2.0.1:
-  version "2.0.1"
-  resolved "https://registry.yarnpkg.com/g/-/g-2.0.1.tgz#0b5963ebd0ca70e3bc8c6766934a021821c8b857"
 
 gauge@~2.7.3:
   version "2.7.4"
@@ -5368,6 +5368,12 @@ react-chartjs-2@^2.6.4:
   dependencies:
     lodash "^4.17.4"
     prop-types "^15.5.8"
+
+react-countup@^3.0.2:
+  version "3.0.2"
+  resolved "https://registry.yarnpkg.com/react-countup/-/react-countup-3.0.2.tgz#26b7e27a91cdefc8ec744704ec93b1cbd9e638f0"
+  dependencies:
+    countup.js "^1.9.3"
 
 react-dev-utils@^4.2.1:
   version "4.2.1"

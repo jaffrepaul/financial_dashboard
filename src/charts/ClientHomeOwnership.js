@@ -3,6 +3,7 @@ import { Bar, Line, Pie, Doughnut, Radar, Polar } from 'react-chartjs-2';
 
 const ClientHomeOwnership = ({ loanData }) => {
   const filteredItems = /[0-9a-z!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]+/;
+
   const livingStatus = loanData
     .map(person => person.home_ownership)
     .filter(item => (!item.match(filteredItems) ? item : null));
