@@ -4,7 +4,7 @@ const path = require('path');
 const filePath = path.join(__dirname, './src/data/csv/LoanStats3a_half2.csv');
 
 // Read CSV
-let f = fs.readFileSync(filePath, { encoding: 'utf-8' }, err => {
+let f = fs.readFileSync(filePath, { encoding: 'utf-8' }, (err) => {
   console.log(err);
 });
 
@@ -15,7 +15,7 @@ f = f.split('\n');
 const headers = f.shift().split(',');
 
 const json = [];
-f.forEach(d => {
+f.forEach((d) => {
   // Loop through each row
   const tmp = {};
   const row = d.split(',');
@@ -30,6 +30,6 @@ f.forEach(d => {
 
 const outPath = path.join(__dirname, './src/data/data_half2.json');
 // Convert object to string, write json to file
-fs.writeFileSync(outPath, JSON.stringify(json), 'utf8', err => {
+fs.writeFileSync(outPath, JSON.stringify(json), 'utf8', (err) => {
   console.log(err);
 });

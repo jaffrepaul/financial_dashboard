@@ -10,13 +10,11 @@ const ClientHomeOwnership = ({ loanData }) => {
 
   const uniqueLivingStatus = [...new Set(livingStatus)];
 
-  // create hashmap of living status & count
   const livingStatusFrequency = livingStatus.reduce((obj, cur) => {
     obj[cur] ? (obj[cur] += 1) : (obj[cur] = 1);
     return obj;
   }, {});
 
-  // final living status count
   const livingStatusCount = Object.values(livingStatusFrequency);
 
   const data = {

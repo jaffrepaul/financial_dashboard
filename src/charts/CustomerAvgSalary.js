@@ -1,7 +1,7 @@
 import React from 'react';
 import CountUp from 'react-countup';
 
-const UserStats = ({ loanData }) => {
+const CustomerAvgSalary = ({ loanData }) => {
   const annualIncome = loanData
     .map(person => Math.floor(person.annual_inc))
     .filter(item => (!isNaN(item) ? item : null));
@@ -33,4 +33,4 @@ const UserStats = ({ loanData }) => {
   );
 };
 
-export default UserStats;
+export default CustomerAvgSalary;
