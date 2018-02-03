@@ -16,6 +16,7 @@ const CustomerAvgSalary = ({ loanData }) => {
   const componentStyle = {
     fontFamily: 'Times New Roman',
     fontSize: 80,
+    textAlign: 'center',
   };
 
   return (

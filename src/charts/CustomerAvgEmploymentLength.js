@@ -10,6 +10,11 @@ const CustomerAvgEmploymentLength = ({ loanData }) => {
 
   const employmentYearsOnly = employments.map(el => (el.includes('<') ? el.slice(0, 4) : el.slice(0, 2)));
 
+  const yearsFrequency = employmentYearsOnly.reduce((obj, cur) => {
+    obj[cur] ? obj[cur] += 1 : obj[cur] = 1;
+    return obj;
+  }, {});
+
   const data = {
     labels: ['0-5 Years', '5-10 Years', '10+ Years'],
     datasets: [

@@ -4,10 +4,8 @@ import { Bar, Line, Pie, Doughnut, Radar, Polar } from 'react-chartjs-2';
 const LoanPurpose = ({ loanData }) => {
   // grab array of all loan purpose & filter erroneous data
   const purpose = loanData.map(person => person.purpose).filter((item) => {
-    const firstLetter = item.charAt(0);
-    if (!item.includes('-') && !item.includes(' ') && firstLetter !== firstLetter.toUpperCase()) {
-      return item;
-    }
+    const target = /^[0-9A-Z-' ']/gm;
+    return (!item.match(target));
   });
 
   // create hashmap of purpose & count
