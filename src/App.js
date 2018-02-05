@@ -11,16 +11,10 @@ import CustomerAvgEmploymentLength from './charts/CustomerAvgEmploymentLength';
 // const combinedData = [...dataHalf1, ...dataHalf2];
 
 const App = () => (
-  // <div>
-  //   <pre><code>{JSON.stringify(preload, null, 4)}</code></pre>
-  // </div>
-  <div className="one">
+  <div>
     <LoanPurpose loanData={dataHalf1} />
-    <hr />
     <ClientHomeOwnership loanData={dataHalf1} />
-    <hr />
     <CustomerAvgSalary loanData={dataHalf1} />
-    <hr />
     <CustomerAvgEmploymentLength loanData={dataHalf1} />
   </div>
 );
