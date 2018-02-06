@@ -3,23 +3,28 @@ import { Bar, Line, Pie, Doughnut, Radar, Polar } from 'react-chartjs-2';
 
 const CustomerAvgEmploymentLength = ({ loanData }) => {
   const employments = loanData.map(person => person.emp_length).filter((item) => {
-    const firstLetter = item.charAt(0);
-    const target = /^[0-9<]/gm;
-    return firstLetter.match(target);
+    const employmentstarget = /^[0-9<]/gm;
+    return item.match(employmentstarget);
   });
 
-  const employmentYearsOnly = employments.map(el => (el.includes('<') ? el.slice(0, 4) : el.slice(0, 2)));
+  const employmentYears = employments.map(el => (el.includes('<') ? Number(el.slice(2, 3)) : Number(el.slice(0, 2))));
+  console.log('employmentYears', employmentYears);
 
-  const yearsFrequency = employmentYearsOnly.reduce((obj, cur) => {
-    obj[cur] ? obj[cur] += 1 : obj[cur] = 1;
+  const zeroToFiveYears = employmentYears.filter(el => el <= 5);
+  const fiveToTenYears = employmentYears.filter(el => el >= 5 && el <= 10);
+  const tenPlusYears = employmentYears.filter(el => el >= 10);
+
+  const yearsFrequency = employmentYears.reduce((obj, cur) => {
+    obj[cur] ? (obj[cur] += 1) : (obj[cur] = 1);
     return obj;
   }, {});
+  console.log(yearsFrequency);
 
   const data = {
     labels: ['0-5 Years', '5-10 Years', '10+ Years'],
     datasets: [
       {
-        data: employmentYearsOnly,
+        data: [zeroToFiveYears.length, fiveToTenYears.length, tenPlusYears.length],
         backgroundColor: [
           'rgba(255, 99, 132, 0.6)', // pink
           'rgba(116, 185, 255, 0.6)', // blue
