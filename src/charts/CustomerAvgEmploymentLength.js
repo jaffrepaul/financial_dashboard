@@ -2,23 +2,22 @@ import React from 'react';
 import { Bar, Line, Pie, Doughnut, Radar, Polar } from 'react-chartjs-2';
 
 const CustomerAvgEmploymentLength = ({ loanData }) => {
-  const employments = loanData.map(person => person.emp_length).filter((item) => {
-    const employmentstarget = /^[0-9<]/gm;
-    return item.match(employmentstarget);
-  });
+  const employments = loanData
+    .map(person => person.emp_length)
+    .filter((item) => {
+      const employmentstarget = /^[0-9<]/gm;
+      return item.match(employmentstarget);
+    }).map(item => (item.includes('<') ? Number(item.slice(2, 3)) : Number(item.slice(0, 2))));
 
-  const employmentYears = employments.map(el => (el.includes('<') ? Number(el.slice(2, 3)) : Number(el.slice(0, 2))));
-  console.log('employmentYears', employmentYears);
+  const zeroToFiveYears = employments.filter(el => el <= 5);
+  const fiveToTenYears = employments.filter(el => el >= 5 && el <= 10);
+  const tenPlusYears = employments.filter(el => el >= 10);
 
-  const zeroToFiveYears = employmentYears.filter(el => el <= 5);
-  const fiveToTenYears = employmentYears.filter(el => el >= 5 && el <= 10);
-  const tenPlusYears = employmentYears.filter(el => el >= 10);
-
-  const yearsFrequency = employmentYears.reduce((obj, cur) => {
-    obj[cur] ? (obj[cur] += 1) : (obj[cur] = 1);
-    return obj;
-  }, {});
-  console.log(yearsFrequency);
+  // const yearsFrequency = employmentYears.reduce((obj, cur) => {
+  //   obj[cur] ? (obj[cur] += 1) : (obj[cur] = 1);
+  //   return obj;
+  // }, {});
+  // console.log(yearsFrequency);
 
   const data = {
     labels: ['0-5 Years', '5-10 Years', '10+ Years'],
@@ -51,7 +50,7 @@ const CustomerAvgEmploymentLength = ({ loanData }) => {
       fontSize: 25,
     },
     legend: {
-      display: false,
+      display: true,
       position: 'top',
       labels: {
         fontColor: '#000',
@@ -59,20 +58,11 @@ const CustomerAvgEmploymentLength = ({ loanData }) => {
     },
     layout: {
       padding: {
-        left: 50,
+        left: 0,
         right: 0,
         bottom: 0,
         top: 0,
       },
-    },
-    scales: {
-      yAxes: [
-        {
-          ticks: {
-            beginAtZero: true,
-          },
-        },
-      ],
     },
     tooltips: {
       enabled: true,
@@ -80,7 +70,7 @@ const CustomerAvgEmploymentLength = ({ loanData }) => {
     maintainAspectRatio: true,
   };
 
-  return <Bar data={data} options={options} />;
+  return <Pie data={data} options={options} />;
 };
 
 export default CustomerAvgEmploymentLength;

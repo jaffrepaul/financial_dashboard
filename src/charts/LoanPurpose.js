@@ -60,7 +60,7 @@ const LoanPurpose = ({ loanData }) => {
     layout: {
       padding: {
         left: 50,
-        right: 0,
+        right: 50,
         bottom: 0,
         top: 0,
       },

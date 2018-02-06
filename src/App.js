@@ -13,10 +13,15 @@ import CustomerAvgEmploymentLength from './charts/CustomerAvgEmploymentLength';
 const App = () => (
   <div>
     <LoanPurpose loanData={dataHalf1} />
+    <hr />
     <ClientHomeOwnership loanData={dataHalf1} />
+    <hr />
     <CustomerAvgSalary loanData={dataHalf1} />
+    <hr />
     <CustomerAvgEmploymentLength loanData={dataHalf1} />
   </div>
 );
+
+// NOTE: change prop names to appropriate variable^^
 
 export default App;
